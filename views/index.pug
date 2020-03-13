@@ -1,0 +1,36 @@
+doctype html
+html(lang="ru")
+    head
+        meta(charset="utf-8")
+        title="CRUD json"
+        link(rel="stylesheet", type="text/css", href="main.css")
+    body
+        h1 CRUD Json App
+        form#json(action="/json", method="post")
+            label(for="jsonInput") Название json файл
+                input#jsonInput(type="text", name="json", required)
+            button#jsonBtn Загрузка Json
+        if items
+            h2#read Read #{title}
+            table
+                tr
+                    td id
+                    td Наименование
+                    td Адресс
+                    td Телефон
+                    td Действия
+                each item, index in items
+                    tr
+                        td= index
+                        td= item["full_name"]
+                        td= item["address"]
+                        td= item["phone"]
+                        td
+                            a.update(href="/update/?id="+index) Update
+                            a.delete(href="/delete/?id="+index) Delete
+            include create.pug
+
+            if id
+                include update.pug
+
+        script(src="app.js")

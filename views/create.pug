@@ -1,0 +1,9 @@
+form#create(action="/create", method="post")
+            h2#createName Create
+            label(for="createFullName") Наименование
+                input#createFullName(type="text", name="full_name", required)
+            label(for="createAddress") Адресс
+                input#createAddress(type="text", name="address", required)
+            label(for="createPhone") Телефон
+                input#createPhone(type="text", name="phone", required)
+            button.btn Создать запись

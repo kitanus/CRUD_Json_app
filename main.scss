@@ -1,0 +1,120 @@
+*{
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 20px min-content 20px min-content 20px min-content 20px min-content 20px min-content;
+  background-color: #DCDCDC;
+  height: 100vh;
+  grid-template-areas:
+          ". . . . ."
+          ". . nameApp . ."
+          ". . . . ."
+          ". json json json ."
+          ". . . . ."
+          ". . readName download ."
+          ". . . . ."
+          ". readTable readTable readTable ."
+          ". . . . ."
+          ". create create create ."
+          ". . . . ."
+          ". update update update .";
+}
+
+h1{
+  grid-area: nameApp;
+  text-align: center;
+}
+
+#read{
+  grid-area: readName;
+  text-align: center;
+}
+
+#json{
+  grid-area: json;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input{
+  padding: 3px 5px;
+}
+
+#jsonBtn, .btn{
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  height: min-content;
+  border:1px solid #757575;
+  background-color: #FFFFFF;
+  color: black;
+  font-size: 19px;
+  outline: none;
+  text-align: center;
+  margin: auto;
+  display: block;
+}
+
+#jsonBtn:hover, #btn:hover{
+  background-color: #b0b0b0;
+}
+
+#jsonBtn:active, #btn:active{
+  border: 1px solid #757575;
+  background-color: #DCDCDC;
+}
+
+#create{
+  grid-area: create;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#create, #update{
+  input{
+    margin-left: 30px;
+  }
+
+  label{
+    margin-bottom: 5px;
+  }
+}
+
+#update{
+  grid-area: update;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table{
+  grid-area: readTable;
+  background-color: white;
+}
+
+table{
+
+  tr{
+    td{
+      text-align: center;
+      border-bottom: 1px solid gray;
+    }
+
+    td{
+      a{
+        color: black;
+        width: min-content;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+    }
+  }
+}

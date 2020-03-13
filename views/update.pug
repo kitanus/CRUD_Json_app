@@ -1,0 +1,11 @@
+form#update(action="/update", method="post")
+            h2#updateName Update
+            label(for="updateId") Идентификатор
+                input#updateId(type="text", name="id", value= id)
+            label(for="updateFullName") Наименование
+                input#updateFullName(type="text", name="full_name", required)
+            label(for="updateAddress") Адресс
+                input#updateAddress(type="text", name="address", required)
+            label(for="updatePhone") Телефон
+                input#updatePhone(type="text", name="phone", required)
+            button.btn Редактировать запись
