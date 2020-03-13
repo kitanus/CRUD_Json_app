@@ -30,8 +30,17 @@ app.get("/", function(req, res)
 
 app.post("/json", urlencodedParser, function(req, res)
 {
-    jsonName = req.body.json;
-    res.redirect("/");
+    fs.access(req.body.json+".json", function(error){
+        if (error)
+        {
+            res.redirect("/");
+        }
+        else
+        {
+            jsonName = req.body.json;
+            res.redirect("/");
+        }
+    });
 });
 
 app.post("/create", urlencodedParser, function(req, res)
