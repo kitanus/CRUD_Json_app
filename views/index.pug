@@ -7,16 +7,17 @@ html(lang="ru")
     body
         h1 CRUD Json App
         form#json(action="/json", method="post")
+            span.msg #{msg["json"]}
             label(for="jsonInput") Название json файл
                 input#jsonInput(type="text", name="json", required)
-            button#jsonBtn Загрузка Json
+            button#jsonBtn(name="action", value="addJson") Загрузка Json
         if items
             h2#read Read #{title}
             table
                 tr
                     td id
                     td Наименование
-                    td Адресс
+                    td Адрес
                     td Телефон
                     td Действия
                 each item, index in items
@@ -30,7 +31,7 @@ html(lang="ru")
                             a.delete(href="/delete/?id="+index) Delete
             include create.pug
 
-            if id
+            if update['id']
                 include update.pug
 
-        script(src="app.js")
+        script(src="alerts.js")
